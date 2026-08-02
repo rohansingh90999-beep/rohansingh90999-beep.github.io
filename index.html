@@ -1,305 +1,662 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Rohan Singh Madhubani | Official Portfolio</title>
+    <meta name="description" content="Official Portfolio of Rohan Singh Madhubani, an aspiring World-Class Full Stack Developer and AI Engineer from Bihar, India.">
+    <meta name="keywords" content="Rohan Singh Madhubani, Full Stack Developer, AI Engineer, Portfolio, Web Developer, Bihar, Software Engineer">
+    <meta name="author" content="Rohan Singh Madhubani">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://rohansingh90999-beep.github.io/">
+    
+    <meta property="og:title" content="Rohan Singh Madhubani | Official Portfolio">
+    <meta property="og:description" content="Aspiring World-Class Full Stack Developer and AI Engineer. Class 10 student from Madhubani, Bihar building the future of tech.">
+    <meta property="og:url" content="https://rohansingh90999-beep.github.io/">
+    <meta property="og:type" content="website">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Rohan Singh Madhubani | Official Portfolio">
+    <meta name="twitter:description" content="Aspiring World-Class Full Stack Developer and AI Engineer.">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Rohan Singh Madhubani",
+      "url": "https://rohansingh90999-beep.github.io/",
+      "jobTitle": "Student & Aspiring Software Engineer",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Madhubani",
+        "addressRegion": "Bihar",
+        "addressCountry": "India"
+      },
+      "sameAs": [
+        "https://www.facebook.com/avishek2022",
+        "https://www.instagram.com/legacy_of_rajput079"
+      ]
+    }
+    </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* ================= VARIABLES & RESET ================= */
+        :root {
+            --primary: #00f2fe;
+            --secondary: #4facfe;
+            --accent: #f093fb;
+            --bg-color: #050510;
+            --text-main: #ffffff;
+            --text-muted: #a0a0b0;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            --font-main: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
 
-<title>Rohan Singh Madhubani | Official Portfolio</title>
+        [data-theme="light"] {
+            --bg-color: #f8f9fa;
+            --text-main: #1a1a2e;
+            --text-muted: #4a4a6a;
+            --glass-bg: rgba(0, 0, 0, 0.03);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
 
-<meta name="description" content="Official website of Rohan Singh Madhubani. Student, Future Web Developer, Programmer and Technology Learner from Bihar, India.">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* Custom cursor */
+        }
 
-<meta name="keywords" content="Rohan Singh Madhubani, Rohan Singh Bihar, Official Website, Student, Portfolio, Web Developer">
+        html {
+            scroll-behavior: smooth;
+            font-family: var(--font-main);
+            overflow-x: hidden;
+        }
 
-<meta name="author" content="Rohan Singh Madhubani">
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            transition: var(--transition);
+            line-height: 1.6;
+        }
 
-<meta name="robots" content="index,follow">
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
 
-<meta property="og:title" content="Rohan Singh Madhubani | Official Website">
-<meta property="og:description" content="Official Portfolio of Rohan Singh Madhubani">
-<meta property="og:image" content="IMG_20260702_215532.png">
-<meta property="og:type" content="website">
+        /* ================= CUSTOM CURSOR ================= */
+        .cursor-dot, .cursor-outline {
+            position: fixed;
+            top: 0; left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .cursor-dot {
+            width: 8px; height: 8px;
+            background-color: var(--primary);
+        }
+        .cursor-outline {
+            width: 40px; height: 40px;
+            border: 2px solid var(--primary);
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+        .cursor-hover {
+            width: 60px; height: 60px;
+            background-color: rgba(0, 242, 254, 0.1);
+            border-color: transparent;
+        }
 
-<link rel="icon" href="IMG_20260702_215532.png">
+        /* ================= LOADER ================= */
+        #loader {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--bg-color); z-index: 10000;
+            display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.5s ease;
+        }
+        .loader-circle {
+            width: 60px; height: 60px;
+            border: 4px solid var(--glass-border);
+            border-top: 4px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"Person",
- "name":"Rohan Singh Madhubani",
- "image":"IMG_20260702_215532.png",
- "url":"https://rohansingh90999-beep.github.io/",
- "jobTitle":"Student",
- "address":{
-   "@type":"PostalAddress",
-   "addressLocality":"Madhubani",
-   "addressRegion":"Bihar",
-   "addressCountry":"India"
- }
-}
-</script>
+        /* ================= BACKGROUND EFFECTS ================= */
+        #canvas-container {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -2; background: var(--bg-color);
+        }
+        .aurora {
+            position: fixed; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(79, 172, 254, 0.15), transparent 60%),
+                        radial-gradient(circle at 80% 20%, rgba(240, 147, 251, 0.15), transparent 50%);
+            filter: blur(60px); z-index: -1; pointer-events: none;
+            animation: auroraMove 20s infinite alternate linear;
+        }
+        @keyframes auroraMove {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-5%, -5%) rotate(5deg); }
+        }
 
-<style>
+        /* ================= SCROLL PROGRESS & BACK TO TOP ================= */
+        .scroll-progress {
+            position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--primary), var(--secondary));
+            z-index: 1001; width: 0%;
+        }
+        .back-to-top {
+            position: fixed; bottom: 30px; right: 30px; width: 45px; height: 45px;
+            background: var(--glass-bg); backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border); border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 999; opacity: 0; pointer-events: none; transition: var(--transition);
+            color: var(--primary); font-size: 20px;
+        }
+        .back-to-top.active { opacity: 1; pointer-events: all; }
+        .back-to-top:hover { background: var(--primary); color: #fff; transform: translateY(-5px); }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-font-family:Arial,Helvetica,sans-serif;
-}
+        /* ================= NAVBAR ================= */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 20px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; transition: var(--transition);
+        }
+        nav.sticky {
+            background: var(--glass-bg); backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--glass-border); padding: 15px 5%;
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links li a { font-size: 0.95rem; font-weight: 500; position: relative; transition: color 0.3s; }
+        .nav-links li a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background: var(--primary); transition: width 0.3s;
+        }
+        .nav-links li a:hover::after { width: 100%; }
+        .theme-btn { background: none; border: none; color: var(--text-main); font-size: 1.2rem; display: flex; align-items: center; justify-content: center; }
 
-body{
-background:#050816;
-color:white;
-overflow-x:hidden;
-}
+        /* Mobile Menu */
+        .menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; }
+        .menu-toggle span { width: 25px; height: 3px; background: var(--text-main); transition: 0.3s; }
 
-a{
-text-decoration:none;
-color:white;
-}
+        /* ================= TYPOGRAPHY & COMPONENTS ================= */
+        .section { padding: 100px 10%; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+        .section-title { font-size: 2.5rem; margin-bottom: 50px; text-align: center; font-weight: 700; position: relative; }
+        .section-title span { background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .glass-card {
+            background: var(--glass-bg); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border); box-shadow: var(--glass-shadow);
+            border-radius: 20px; padding: 30px; transition: var(--transition);
+        }
+        .glass-card:hover { transform: translateY(-10px); border-color: var(--primary); }
 
-img{
-max-width:100%;
-}
+        .btn {
+            display: inline-block; padding: 12px 28px; border-radius: 30px; font-weight: 600;
+            transition: var(--transition); position: relative; overflow: hidden; z-index: 1; border: none;
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--secondary)); color: #fff;
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
+        }
+        .btn-primary::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            z-index: -1; transition: opacity 0.3s; opacity: 0;
+        }
+        .btn-primary:hover::before { opacity: 1; }
+        .btn-primary:hover { box-shadow: 0 8px 25px rgba(0, 242, 254, 0.5); transform: translateY(-3px); }
 
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-}/* ===========================
-   PREMIUM ANIMATED BACKGROUND
-=========================== */
+        .btn-outline { border: 2px solid var(--primary); color: var(--primary); background: transparent; }
+        .btn-outline:hover { background: var(--primary); color: #fff; }
 
-body{
-background:linear-gradient(-45deg,#050816,#0f172a,#1e3a8a,#0ea5e9,#050816);
-background-size:400% 400%;
-animation:bgMove 15s ease infinite;
-}
+        /* ================= HERO SECTION ================= */
+        .hero { display: flex; align-items: center; justify-content: space-between; gap: 50px; position: relative; }
+        .hero-content { flex: 1; z-index: 2; }
+        .greeting { font-size: 1.2rem; color: var(--primary); margin-bottom: 10px; display: block; font-weight: 600; }
+        .hero-title { font-size: 4rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+        .hero-subtitle { font-size: 1.8rem; font-weight: 400; margin-bottom: 30px; color: var(--text-muted); }
+        .typewriter { display: inline-block; border-right: 3px solid var(--primary); padding-right: 5px; animation: blink 0.7s infinite; color: var(--primary); }
+        .hero-desc { max-width: 600px; color: var(--text-muted); margin-bottom: 40px; font-size: 1.1rem; }
+        .hero-btns { display: flex; gap: 20px; }
+        @keyframes blink { 50% { border-color: transparent; } }
 
-@keyframes bgMove{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
+        /* Floating Shapes */
+        .shape { position: absolute; filter: blur(5px); opacity: 0.6; animation: float 6s ease-in-out infinite; z-index: 1; }
+        .shape-1 { width: 100px; height: 100px; background: linear-gradient(45deg, var(--primary), transparent); border-radius: 50%; top: 20%; right: 10%; }
+        .shape-2 { width: 150px; height: 150px; background: linear-gradient(45deg, var(--accent), transparent); border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; bottom: 10%; right: 30%; animation-delay: 2s; }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-20px) rotate(10deg); } }
 
-/* ===========================
-   NAVBAR
-=========================== */
+        /* ================= ABOUT & CLOCK ================= */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .about-text p { margin-bottom: 20px; font-size: 1.1rem; color: var(--text-muted); }
+        .info-list { margin-top: 30px; }
+        .info-list li { margin-bottom: 15px; display: flex; align-items: center; font-size: 1.05rem; }
+        .info-list span { font-weight: 600; color: var(--primary); width: 100px; display: inline-block; }
+        
+        .live-clock-card { text-align: center; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .clock-time { font-size: 3.5rem; font-weight: 700; background: linear-gradient(90deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-variant-numeric: tabular-nums; }
+        .clock-date { font-size: 1.2rem; color: var(--text-muted); margin-top: 10px; }
 
-nav{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(12px);
-z-index:999;
-}
+        /* ================= SKILLS ================= */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .skill-category { margin-bottom: 20px; }
+        .skill-category h3 { margin-bottom: 25px; color: var(--primary); display: flex; align-items: center; gap: 10px; }
+        .skill-item { margin-bottom: 25px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 500; }
+        .skill-bar { width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .skill-progress { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 4px; width: 0; transition: width 1.5s cubic-bezier(0.25, 0.8, 0.25, 1); }
 
-.logo{
-font-size:28px;
-font-weight:bold;
-color:#38bdf8;
-}
+        /* ================= PROJECTS ================= */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card { position: relative; overflow: hidden; padding: 0; group; }
+        .project-img { width: 100%; height: 220px; background: rgba(255,255,255,0.05); display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .project-img svg { width: 80px; height: 80px; fill: var(--glass-border); transition: var(--transition); }
+        .project-card:hover .project-img svg { transform: scale(1.1); fill: var(--primary); }
+        .project-info { padding: 25px; }
+        .project-tags { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
+        .project-tags span { font-size: 0.75rem; padding: 5px 12px; background: rgba(0, 242, 254, 0.1); color: var(--primary); border-radius: 20px; font-weight: 600; }
+        .project-title { font-size: 1.4rem; margin-bottom: 10px; font-weight: 700; }
+        .project-desc { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px; }
+        .project-links { display: flex; gap: 15px; }
+        .project-link { font-size: 0.9rem; color: var(--text-main); font-weight: 600; display: flex; align-items: center; gap: 5px; transition: color 0.3s; }
+        .project-link:hover { color: var(--primary); }
+        
+        /* ================= TIMELINE (Education/Experience/Goals) ================= */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; left: 50%; transform: translateX(-50%); width: 2px; height: 100%; background: var(--glass-border); }
+        .timeline-item { width: 100%; margin-bottom: 50px; position: relative; display: flex; justify-content: space-between; align-items: center; }
+        .timeline-item:nth-child(odd) { flex-direction: row-reverse; }
+        .timeline-dot { position: absolute; left: 50%; transform: translate(-50%, 0); width: 20px; height: 20px; background: var(--bg-color); border: 4px solid var(--primary); border-radius: 50%; z-index: 2; box-shadow: 0 0 15px var(--primary); }
+        .timeline-content { width: calc(50% - 40px); padding: 30px; }
+        .timeline-date { color: var(--primary); font-weight: 700; margin-bottom: 10px; display: block; font-size: 0.9rem; letter-spacing: 1px; }
+        .timeline-title { font-size: 1.3rem; margin-bottom: 10px; }
+        .timeline-desc { color: var(--text-muted); font-size: 0.95rem; }
 
-nav ul{
-display:flex;
-gap:25px;
-list-style:none;
-}
+        /* ================= STATISTICS / COUNTERS ================= */
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; margin-bottom: 50px; }
+        .stat-item h4 { font-size: 3rem; font-weight: 800; background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .stat-item p { color: var(--text-muted); font-size: 1.1rem; font-weight: 500; margin-top: 10px; }
 
-nav ul li a{
-color:#fff;
-font-weight:bold;
-transition:.3s;
-}
+        /* ================= CONTACT ================= */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+        .contact-info { padding-right: 30px; }
+        .contact-info h3 { font-size: 2rem; margin-bottom: 20px; }
+        .contact-info p { color: var(--text-muted); margin-bottom: 40px; }
+        .social-links { display: flex; gap: 15px; margin-top: 30px; }
+        .social-links a { 
+            width: 50px; height: 50px; border-radius: 50%; background: var(--glass-bg); border: 1px solid var(--glass-border);
+            display: flex; justify-content: center; align-items: center; transition: var(--transition);
+        }
+        .social-links a:hover { background: var(--primary); transform: translateY(-5px); border-color: var(--primary); }
+        .social-links a svg { width: 20px; height: 20px; fill: var(--text-main); transition: var(--transition); }
+        
+        .contact-form .form-group { margin-bottom: 25px; position: relative; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 15px 20px; background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border);
+            border-radius: 10px; color: var(--text-main); font-family: inherit; font-size: 1rem; transition: var(--transition);
+        }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--primary); background: rgba(0,242,254,0.05); }
+        .contact-form textarea { height: 150px; resize: none; }
+        .contact-form label {
+            position: absolute; left: 20px; top: 15px; color: var(--text-muted); pointer-events: none;
+            transition: var(--transition); font-size: 1rem;
+        }
+        .contact-form input:focus ~ label, .contact-form input:valid ~ label,
+        .contact-form textarea:focus ~ label, .contact-form textarea:valid ~ label {
+            top: -10px; left: 15px; font-size: 0.8rem; background: var(--bg-color); padding: 0 5px; color: var(--primary);
+        }
 
-nav ul li a:hover{
-color:#38bdf8;
-}
+        /* ================= FOOTER ================= */
+        footer { padding: 30px 5%; text-align: center; border-top: 1px solid var(--glass-border); background: var(--glass-bg); backdrop-filter: blur(10px); }
+        footer p { color: var(--text-muted); font-size: 0.95rem; }
+        footer span { color: var(--primary); font-weight: 600; }
 
-/* ===========================
-   HERO
-=========================== */
+        /* ================= ANIMATIONS (Scroll Reveal) ================= */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(50px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
 
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding-top:80px;
-}
-
-.hero img{
-width:200px;
-height:200px;
-border-radius:50%;
-border:5px solid #38bdf8;
-box-shadow:0 0 30px #38bdf8;
-animation:float 4s ease-in-out infinite;
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-15px);}
-}
-
-.hero h1{
-font-size:55px;
-margin-top:25px;
-}
-
-.hero span{
-color:#38bdf8;
-}
-
-.hero p{
-margin-top:15px;
-font-size:22px;
-color:#ddd;
-}
-
-/* ===========================
-   BUTTONS
-=========================== */
-
-.btn{
-display:inline-block;
-margin-top:25px;
-padding:14px 30px;
-border-radius:40px;
-background:#38bdf8;
-color:#000;
-font-weight:bold;
-transition:.4s;
-box-shadow:0 0 20px #38bdf8;
-}
-
-.btn:hover{
-transform:translateY(-6px) scale(1.05);
-box-shadow:0 0 40px #38bdf8;
-}
-
-/* ===========================
-   GLASS CARD
-=========================== */
-
-.card{
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.15);
-border-radius:20px;
-padding:25px;
-margin:30px 0;
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(56,189,248,.5);
-  }</style>
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 3rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 15px 5%; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 70vw; height: 100vh;
+                background: var(--glass-bg); backdrop-filter: blur(20px); flex-direction: column;
+                justify-content: center; align-items: center; transition: 0.5s; z-index: -1;
+                border-left: 1px solid var(--glass-border);
+            }
+            .nav-links.active { right: 0; }
+            .menu-toggle { display: flex; cursor: none; z-index: 100; }
+            .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .menu-toggle.active span:nth-child(2) { opacity: 0; }
+            .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+            
+            .hero { flex-direction: column; text-align: center; padding-top: 150px; }
+            .hero-btns { justify-content: center; }
+            .about-grid, .contact-container { grid-template-columns: 1fr; }
+            
+            .timeline::before { left: 20px; }
+            .timeline-item, .timeline-item:nth-child(odd) { flex-direction: column; align-items: flex-start; padding-left: 50px; }
+            .timeline-dot { left: 20px; transform: translateX(-50%); }
+            .timeline-content { width: 100%; }
+            
+            .section { padding: 80px 5%; }
+            .cursor-dot, .cursor-outline { display: none; } /* Disable custom cursor on mobile */
+            * { cursor: auto; }
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
-<div class="logo">Rohan Singh</div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
 
-<ul>
-<li><a href="#about">About</a></li>
-<li><a href="#skills">Skills</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-
-<section class="hero">
-<div class="container">
-
-<img src="IMG_20260702_215532.png" alt="Rohan Singh">
-
-<h1>Hi, I'm <span>Rohan Singh Madhubani</span></h1>
-
-<p>10th Class Student • Future Web Developer • Programmer</p>
-
-<a href="#about" class="btn">Explore My Website</a>
-
-</div>
-</section>
-<section id="about" class="card">
-  <div class="container">
-    <h2>👨 About Me</h2>
-
-    <p>
-      Hello! I am <strong>Rohan Singh Madhubani</strong>, a 10th Class Student from Madhubani, Bihar, India.
-    </p>
-
-    <p>
-      I love Web Development, Programming, Technology and learning new skills every day.
-      My goal is to become a professional Full Stack Web Developer and create powerful websites.
-    </p>
-  </div>
-</section>
-
-<section id="skills" class="card">
-  <div class="container">
-    <h2>💻 My Skills</h2>
-
-    <div class="skills">
-      <span class="skill">HTML5</span>
-      <span class="skill">CSS3</span>
-      <span class="skill">JavaScript (Learning)</span>
-      <span class="skill">GitHub Pages</span>
-      <span class="skill">SEO Basics</span>
-      <span class="skill">Responsive Design</span>
+    <div id="loader">
+        <div class="loader-circle"></div>
     </div>
-  </div>
-</section><section id="projects" class="card">
-  <div class="container">
-    <h2>🚀 My Projects</h2>
 
-    <div class="card">
-      <h3>🌐 Personal Portfolio Website</h3>
-      <p>
-        This is my official portfolio website built using HTML & CSS.
-        It is hosted on GitHub Pages and continuously updated with new features.
-      </p>
+    <div class="scroll-progress" id="scrollProgress"></div>
 
-      <a href="https://rohansingh90999-beep.github.io/" target="_blank" class="btn">
-        🔗 Visit Website
-      </a>
+    <div id="canvas-container">
+        <div class="aurora"></div>
+        <canvas id="particleCanvas"></canvas>
     </div>
-  </div>
-</section>
 
-<section id="contact" class="card">
-  <div class="container">
-    <h2>📞 Contact Me</h2>
+    <nav id="navbar">
+        <a href="#" class="logo">RSM.</a>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#timeline">Journey</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <button class="theme-btn" id="themeBtn" aria-label="Toggle Theme">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            <button class="menu-toggle" id="menuBtn" aria-label="Open Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
 
-    <p>📍 Madhubani, Bihar, India</p>
+    <section id="home" class="section hero">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="hero-content reveal-left">
+            <span class="greeting">Hello World, I am</span>
+            <h1 class="hero-title">Rohan Singh Madhubani</h1>
+            <h2 class="hero-subtitle">I build <span class="typewriter" id="typewriter"></span></h2>
+            <p class="hero-desc">An aspiring World-Class Full Stack Developer & AI Engineer currently studying in Class 10. Passionate about crafting ultra-premium digital experiences and architecting robust software solutions from Bihar to the World.</p>
+            <div class="hero-btns">
+                <a href="#projects" class="btn btn-primary interactive">View My Work</a>
+                <a href="#contact" class="btn btn-outline interactive">Contact Me</a>
+            </div>
+        </div>
+    </section>
 
-    <div class="buttons">
-      <a href="https://www.facebook.com/avishek2022" target="_blank" class="btn">Facebook</a>
+    <section id="about" class="section">
+        <h2 class="section-title reveal"><span>About</span> Me</h2>
+        <div class="about-grid">
+            <div class="about-text reveal-left">
+                <p>I am a highly motivated student and self-taught developer from Madhubani, Bihar, India. Currently in Class 10, my vision is set far beyond standard academics. I am relentlessly pursuing my goal to become a World-Class Full Stack Developer, AI Engineer, and Software Architect.</p>
+                <p>I believe in the power of code to solve real-world problems and create breathtaking user experiences. Security, Performance, and Premium UI/UX are the pillars of my development philosophy.</p>
+                <ul class="info-list">
+                    <li><span>Name:</span> Rohan Singh Madhubani</li>
+                    <li><span>Location:</span> Bihar, India</li>
+                    <li><span>Education:</span> Class 10 Student</li>
+                    <li><span>Goal:</span> AI Engineer & Software Architect</li>
+                </ul>
+            </div>
+            <div class="glass-card live-clock-card reveal-right interactive">
+                <h3 style="margin-bottom: 20px; font-weight: 500; color: var(--text-muted);">Current Local Time</h3>
+                <div class="clock-time" id="liveClock">00:00:00</div>
+                <div class="clock-date" id="liveDate">Loading date...</div>
+            </div>
+        </div>
+    </section>
 
-      <a href="https://www.instagram.com/legacy_of_rajput079?igsh=MXF0azcyeDN3cXQyeQ==" target="_blank" class="btn">Instagram</a>
+    <section id="skills" class="section">
+        <h2 class="section-title reveal">Technical <span>Arsenal</span></h2>
+        
+        <div class="skills-container">
+            <div class="glass-card skill-category reveal">
+                <h3><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg> Frontend Architecture</h3>
+                <div class="skill-item">
+                    <div class="skill-info"><span>HTML5 / Semantic UI</span><span>95%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="95%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>CSS3 / Animations</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="90%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Vanilla JavaScript</span><span>85%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="85%"></div></div>
+                </div>
+            </div>
 
-      <a href="mailto:your@email.com" class="btn">Email</a>
-    </div>
-  </div>
-</section>
+            <div class="glass-card skill-category reveal" style="transition-delay: 0.2s;">
+                <h3><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Core Engineering</h3>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Web Performance</span><span>88%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="88%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>UI/UX Design</span><span>92%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="92%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Technical SEO</span><span>90%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="90%"></div></div>
+                </div>
+            </div>
+            
+            <div class="glass-card skill-category reveal" style="transition-delay: 0.4s;">
+                <h3><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2a2 2 0 0 1 2 2c0 1.1-.9 2-2 2s-2-.9-2-2a2 2 0 0 1 2-2zM4.93 4.93a2 2 0 0 1 2.83 0c.78.78.78 2.05 0 2.83-.78.78-2.05.78-2.83 0a2 2 0 0 1 0-2.83zM2 12a2 2 0 0 1 2-2c1.1 0 2 .9 2 2s-.9 2-2 2a2 2 0 0 1-2-2zM4.93 19.07a2 2 0 0 1 0-2.83c.78-.78 2.05-.78 2.83 0 .78.78.78 2.05 0 2.83a2 2 0 0 1-2.83 0zM12 22a2 2 0 0 1-2-2c0-1.1.9-2 2-2s2 .9 2 2a2 2 0 0 1-2 2zM19.07 19.07a2 2 0 0 1-2.83 0c-.78-.78-.78-2.05 0-2.83.78-.78 2.05-.78 2.83 0a2 2 0 0 1 0 2.83zM22 12a2 2 0 0 1-2 2c-1.1 0-2-.9-2-2s.9-2 2-2a2 2 0 0 1 2 2zM19.07 4.93a2 2 0 0 1 0 2.83c-.78.78-2.05.78-2.83 0-.78-.78-.78-2.05 0-2.83a2 2 0 0 1 2.83 0z"></path></svg> Focus Areas</h3>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Artificial Intelligence</span><span>Learning</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="60%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Backend Architecture</span><span>Learning</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="70%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-info"><span>Cyber Security</span><span>Learning</span></div>
+                    <div class="skill-bar"><div class="skill-progress" data-width="65%"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<footer>
-  <div class="container">
-    <p>© 2026 Rohan Singh Madhubani | Official Website</p>
-  </div>
-</footer>
+    <section id="projects" class="section">
+        <h2 class="section-title reveal">Featured <span>Projects</span></h2>
+        <div class="projects-grid">
+            
+            <div class="glass-card project-card reveal interactive">
+                <div class="project-img">
+                    <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags"><span>HTML5</span><span>CSS3</span><span>Vanilla JS</span></div>
+                    <h3 class="project-title">Ultra Premium Portfolio</h3>
+                    <p class="project-desc">A highly optimized, SEO-friendly, zero-framework personal portfolio built with advanced CSS architecture and algorithmic JavaScript animations.</p>
+                    <div class="project-links">
+                        <a href="https://rohansingh90999-beep.github.io/" class="project-link interactive">View Live →</a>
+                    </div>
+                </div>
+            </div>
 
-</body>
-</html>
+            <div class="glass-card project-card reveal interactive" style="transition-delay: 0.2s;">
+                <div class="project-img">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags"><span>Frontend</span><span>UI/UX</span></div>
+                    <h3 class="project-title">Glassmorphism Dashboard</h3>
+                    <p class="project-desc">Conceptual design for a modern analytics dashboard featuring complex glassmorphism, responsive grid layouts, and smooth data visualization.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link interactive">Coming Soon →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-card project-card reveal interactive" style="transition-delay: 0.4s;">
+                <div class="project-img">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg>
+                </div>
+                <div class="project-info">
+                    <div class="project-tags"><span>AI Concept</span><span>Algorithm</span></div>
+                    <h3 class="project-title">Smart Learning Bot</h3>
+                    <p class="project-desc">Blueprint for an AI-driven educational tool designed to help high school students grasp complex logic and programming paradigms.</p>
+                    <div class="project-links">
+                        <a href="#" class="project-link interactive">In Development →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="timeline" class="section">
+        <h2 class="section-title reveal">My <span>Journey</span></h2>
+        
+        <div class="stats-grid reveal">
+            <div class="stat-item glass-card interactive"><h4 class="counter" data-target="100">0</h4><p>SEO Score Goal</p></div>
+            <div class="stat-item glass-card interactive"><h4 class="counter" data-target="10">0</h4><p>Current Class</p></div>
+            <div class="stat-item glass-card interactive"><h4 class="counter" data-target="24">0</h4><p>Hours Dedicated</p></div>
+            <div class="stat-item glass-card interactive"><h4 class="counter" data-target="1000">0</h4><p>Lines of Code</p></div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card interactive">
+                    <span class="timeline-date">Future Vision</span>
+                    <h3 class="timeline-title">World Class Engineer</h3>
+                    <p class="timeline-desc">Aspiring to master AI Engineering, Advanced Software Architecture, and Full Stack Development to build scalable global solutions.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card interactive">
+                    <span class="timeline-date">Current</span>
+                    <h3 class="timeline-title">Class 10 Student</h3>
+                    <p class="timeline-desc">Balancing rigorous academics in Madhubani, Bihar, while investing heavily in self-taught programming, UI/UX design, and computer science fundamentals.</p>
+                </div>
+            </div>
+            <div class="timeline-item reveal">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-card interactive">
+                    <span class="timeline-date">Genesis</span>
+                    <h3 class="timeline-title">The Spark</h3>
+                    <p class="timeline-desc">Discovered the power of code. Started experimenting with HTML, CSS, and vanilla JS to create visually stunning digital interfaces.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title reveal">Get in <span>Touch</span></h2>
+        <div class="contact-container">
+            <div class="contact-info reveal-left">
+                <h3>Let's build the future together.</h3>
+                <p>Whether you have a question, a project idea, or just want to connect, feel free to drop a message. I am always open to discussing new opportunities, web architecture, and AI concepts.</p>
+                
+                <div style="margin-bottom: 20px; display: flex; align-items: center; gap: 15px;">
+                    <svg width="24" height="24" fill="none" stroke="var(--primary)" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    <span>Madhubani, Bihar, India</span>
+                </div>
+
+                <div class="social-links">
+                    <a href="https://www.facebook.com/avishek2022" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="interactive">
+                        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                    </a>
+                    <a href="https://www.instagram.com/legacy_of_rajput079" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="interactive">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://rohansingh90999-beep.github.io/" target="_blank" rel="noopener noreferrer" aria-label="GitHub Pages" class="interactive">
+                        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="glass-card reveal-right">
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Form validation successful! Form submission logic to be connected.');">
+                    <div class="form-group">
+                        <input type="text" id="name" required autocomplete="name">
+                        <label for="name">Your Name</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" required autocomplete="email">
+                        <label for="email">Your Email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" required></textarea>
+                        <label for="message">Your Message</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary interactive" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; <span id="currentYear"></span> <span>Rohan Singh Madhubani</span>. All Rights Reserved.</p>
+        <p style="margin-top: 10px; font-size: 0.8rem; opacity: 0.7;">Engineered with pure HTML5, CSS3, & Vanilla JS.</p>
+    </footer>
+
+    <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top interactive">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </a>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* ================= 1. LOADER ================= */
+            const loader = document.getElementById('loader');
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    loader.style.opacity = '0';
+                    setTimeout(() => { loader.style.display = 'none'; }, 500);
+                }, 800); // Premium delay feel
+            });
+
+            /* ================= 2. CUSTOM CURSOR ================= */
+            const cursorDot = document.querySelector('.cursor-dot');
+            const cursorOutline = document.querySelector('.cursor-outline');
+            const interactives = document.querySelectorAll('.interactive, a, button, input, textarea');
+
+            window.addEventListener('mousemove', (e) => {
+                const posX = e.clientX;
+                const posY = e.clientY;
+                cursorDot.style.left = `${posX}px`;
+                cursorDot.style.top = `${posY}px`;
+                
+                // Add slight delay for outline (smooth follow)
+                cursorOutline.animate({
+                    left: `${posX}px`, top: `${posY}px`
+                }, { duration: 500, fill: "forwards" });
+            });
+
+            interactives.forEach(el => {
+                el.addEventListener('mouseenter', () => cursorOutline.classList.add(
