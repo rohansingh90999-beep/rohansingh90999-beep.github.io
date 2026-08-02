@@ -659,4 +659,218 @@
             });
 
             interactives.forEach(el => {
-                el.addEventListener('mouseenter', () => cursorOutline.classList.add(
+                el.addEventListener('mouseenter', () => cursorOutline.classList.add('cursor-hover'));
+                el.addEventListener('mouseleave', () => cursorOutline.classList.remove('cursor-hover'));
+            });
+
+            /* ================= 3. SCROLL PROGRESS & NAVBAR STICKY ================= */
+            const scrollProgress = document.getElementById('scrollProgress');
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                scrollProgress.style.width = scrolled + "%";
+
+                if (winScroll > 50) {
+                    navbar.classList.add('sticky');
+                    backToTop.classList.add('active');
+                } else {
+                    navbar.classList.remove('sticky');
+                    backToTop.classList.remove('active');
+                }
+            });
+
+            /* ================= 4. THEME SWITCHER ================= */
+            const themeBtn = document.getElementById('themeBtn');
+            const htmlTag = document.documentElement;
+            
+            themeBtn.addEventListener('click', () => {
+                const currentTheme = htmlTag.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                htmlTag.setAttribute('data-theme', newTheme);
+                
+                // Icon toggle
+                themeBtn.innerHTML = newTheme === 'dark' 
+                    ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>'
+                    : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+            });
+
+            /* ================= 5. MOBILE MENU ================= */
+            const menuBtn = document.getElementById('menuBtn');
+            const navLinks = document.querySelector('.nav-links');
+            const navItems = document.querySelectorAll('.nav-links li a');
+
+            menuBtn.addEventListener('click', () => {
+                menuBtn.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    menuBtn.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            /* ================= 6. TYPING ANIMATION ================= */
+            const words = ["Web Apps", "AI Models", "Premium UIs", "Secure APIs"];
+            let wordIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+            const typewriterEl = document.getElementById('typewriter');
+
+            function type() {
+                const currentWord = words[wordIndex];
+                
+                if (isDeleting) {
+                    typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                let typeSpeed = isDeleting ? 50 : 100;
+
+                if (!isDeleting && charIndex === currentWord.length) {
+                    typeSpeed = 2000; // Pause at end
+                    isDeleting = true;
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    typeSpeed = 500; // Pause before new word
+                }
+                setTimeout(type, typeSpeed);
+            }
+            setTimeout(type, 1500); // Start delay
+
+            /* ================= 7. SCROLL REVEAL & SKILL BARS & COUNTERS ================= */
+            const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // General Reveal
+                        if(entry.target.classList.contains('reveal') || 
+                           entry.target.classList.contains('reveal-left') || 
+                           entry.target.classList.contains('reveal-right')) {
+                            entry.target.classList.add('active');
+                        }
+                        
+                        // Skill Bars
+                        if (entry.target.classList.contains('skill-category')) {
+                            const bars = entry.target.querySelectorAll('.skill-progress');
+                            bars.forEach(bar => { bar.style.width = bar.getAttribute('data-width'); });
+                        }
+
+                        // Counters
+                        if(entry.target.classList.contains('stats-grid')) {
+                            const counters = entry.target.querySelectorAll('.counter');
+                            counters.forEach(counter => {
+                                const target = +counter.getAttribute('data-target');
+                                const duration = 2000;
+                                const step = target / (duration / 16); // 60fps
+                                let current = 0;
+                                const updateCounter = () => {
+                                    current += step;
+                                    if(current < target) {
+                                        counter.innerText = Math.ceil(current);
+                                        requestAnimationFrame(updateCounter);
+                                    } else {
+                                        counter.innerText = target + (target > 10 ? '+' : '');
+                                    }
+                                };
+                                updateCounter();
+                            });
+                            observer.unobserve(entry.target); // Animate numbers once
+                        }
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .skill-category, .stats-grid').forEach(el => observer.observe(el));
+
+            /* ================= 8. LIVE CLOCK ================= */
+            const clockEl = document.getElementById('liveClock');
+            const dateEl = document.getElementById('liveDate');
+            function updateClock() {
+                const now = new Date();
+                let h = now.getHours();
+                let m = now.getMinutes();
+                let s = now.getSeconds();
+                let ampm = h >= 12 ? 'PM' : 'AM';
+                h = h % 12; h = h ? h : 12;
+                m = m < 10 ? '0' + m : m;
+                s = s < 10 ? '0' + s : s;
+                clockEl.textContent = `${h}:${m}:${s} ${ampm}`;
+                dateEl.textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
+
+            /* ================= 9. AUTO YEAR UPDATE ================= */
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            /* ================= 10. VANILLA JS PARTICLE SYSTEM ================= */
+            const canvas = document.getElementById('particleCanvas');
+            const ctx = canvas.getContext('2d');
+            let particlesArray = [];
+            
+            function initCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', initCanvas);
+            initCanvas();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2;
+                    this.speedX = (Math.random() * 0.5) - 0.25;
+                    this.speedY = (Math.random() * 0.5) - 0.25;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if(this.x > canvas.width || this.x < 0) this.speedX *= -1;
+                    if(this.y > canvas.height || this.y < 0) this.speedY *= -1;
+                }
+                draw() {
+                    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim();
+                    ctx.globalAlpha = 0.3;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            function initParticles() {
+                particlesArray = [];
+                let numberOfParticles = (canvas.width * canvas.height) / 15000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    particlesArray.push(new Particle());
+                }
+            }
+            
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            
+            initParticles();
+            animateParticles();
+
+        });
+    </script>
+</body>
+</html>
+
