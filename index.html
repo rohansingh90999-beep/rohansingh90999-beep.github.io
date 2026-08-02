@@ -1,244 +1,304 @@
-totu<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rohan Singh madhubani | Official Website</title>
+<title>Rohan Singh Madhubani | Official Portfolio</title>
 
-<meta name="description" content="Official website of Rohan Singh, 10th Class Student from Madhubani, Bihar, India.">
-<meta name="keywords" content="Rohan Singh, Madhubani, Bihar, Student, Portfolio">
-<meta name="author" content="Rohan Singh">
+<meta name="description" content="Official website of Rohan Singh Madhubani. Student, Future Web Developer, Programmer and Technology Learner from Bihar, India.">
 
-  <meta name="author" content="Rohan Singh">
+<meta name="keywords" content="Rohan Singh Madhubani, Rohan Singh Bihar, Official Website, Student, Portfolio, Web Developer">
+
+<meta name="author" content="Rohan Singh Madhubani">
+
+<meta name="robots" content="index,follow">
+
+<meta property="og:title" content="Rohan Singh Madhubani | Official Website">
+<meta property="og:description" content="Official Portfolio of Rohan Singh Madhubani">
+<meta property="og:image" content="IMG_20260702_215532.png">
+<meta property="og:type" content="website">
+
+<link rel="icon" href="IMG_20260702_215532.png">
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Person",
-  "name":"Rohan Singh madhubani",
-  "description":"10th Class Student from Madhubani, Bihar, India",
-  "address":{
-    "@type":"PostalAddress",
-    "addressLocality":"Madhubani",
-    "addressRegion":"Bihar",
-    "addressCountry":"India"
-  },
-  "url":"https://rohansingh90999-beep.github.io/",
-  "image":"https://rohansingh90999-beep.github.io/IMG_20260702_215532.png"
+ "@context":"https://schema.org",
+ "@type":"Person",
+ "name":"Rohan Singh Madhubani",
+ "image":"IMG_20260702_215532.png",
+ "url":"https://rohansingh90999-beep.github.io/",
+ "jobTitle":"Student",
+ "address":{
+   "@type":"PostalAddress",
+   "addressLocality":"Madhubani",
+   "addressRegion":"Bihar",
+   "addressCountry":"India"
+ }
 }
 </script>
 
 <style>
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 scroll-behavior:smooth;
+font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-font-family:Arial,sans-serif;
-background:#0f172a;
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+a{
+text-decoration:none;
 color:white;
 }
 
-header{
-padding:50px 20px;
-text-align:center;
-background:#111827;
+img{
+max-width:100%;
 }
 
-header img{
-width:180px;
-height:180px;
-object-fit:cover;
-border-radius:50%;
-border:5px solid #38bdf8;
-box-shadow:0 0 20px #38bdf8;
-margin-bottom:20px;
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}/* ===========================
+   PREMIUM ANIMATED BACKGROUND
+=========================== */
+
+body{
+background:linear-gradient(-45deg,#050816,#0f172a,#1e3a8a,#0ea5e9,#050816);
+background-size:400% 400%;
+animation:bgMove 15s ease infinite;
 }
 
-h1{
-font-size:42px;
+@keyframes bgMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
 }
 
-h2{
-color:#38bdf8;
-margin-top:10px;
-}
+/* ===========================
+   NAVBAR
+=========================== */
 
-section{
-max-width:900px;
-margin:30px auto;
-padding:25px;
-background:#1e293b;
-border-radius:15px;
-}
-
-section h3{
-color:#38bdf8;
-margin-bottom:15px;
-}
-
-p{
-line-height:1.8;
-}
-
-.skills{
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 8%;
 display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:10px;
-margin-top:15px;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+z-index:999;
 }
 
-.skill{
-background:#38bdf8;
-color:#000;
-padding:10px 18px;
-border-radius:30px;
+.logo{
+font-size:28px;
 font-weight:bold;
+color:#38bdf8;
 }
 
-.buttons{
-margin-top:20px;
+nav ul{
+display:flex;
+gap:25px;
+list-style:none;
 }
 
-.buttons a{
-display:inline-block;
-margin:8px;
-padding:12px 20px;
-background:#38bdf8;
-color:#000;
-text-decoration:none;
-border-radius:8px;
+nav ul li a{
+color:#fff;
 font-weight:bold;
 transition:.3s;
 }
 
-.buttons a:hover{
-background:white;
+nav ul li a:hover{
+color:#38bdf8;
 }
 
-footer{
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
-padding:30px;
-color:#94a3b8;
+padding-top:80px;
 }
-</style>
+
+.hero img{
+width:200px;
+height:200px;
+border-radius:50%;
+border:5px solid #38bdf8;
+box-shadow:0 0 30px #38bdf8;
+animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-15px);}
+}
+
+.hero h1{
+font-size:55px;
+margin-top:25px;
+}
+
+.hero span{
+color:#38bdf8;
+}
+
+.hero p{
+margin-top:15px;
+font-size:22px;
+color:#ddd;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 30px;
+border-radius:40px;
+background:#38bdf8;
+color:#000;
+font-weight:bold;
+transition:.4s;
+box-shadow:0 0 20px #38bdf8;
+}
+
+.btn:hover{
+transform:translateY(-6px) scale(1.05);
+box-shadow:0 0 40px #38bdf8;
+}
+
+/* ===========================
+   GLASS CARD
+=========================== */
+
+.card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:20px;
+padding:25px;
+margin:30px 0;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(56,189,248,.5);
+  }</style>
 </head>
 
 <body>
 
-<header>
+<nav>
+<div class="logo">Rohan Singh</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+<div class="container">
 
 <img src="IMG_20260702_215532.png" alt="Rohan Singh">
 
-<h1>Rohan Singh Madhubani</h1>
+<h1>Hi, I'm <span>Rohan Singh Madhubani</span></h1>
 
-<h2>10th Class Student</h2>
+<p>10th Class Student • Future Web Developer • Programmer</p>
 
-<p>Learning Technology • Web Development • Programming</p>
-
-<div class="buttons">
-
-<a href="#about">About</a>
-
-<a href="#skills">Skills</a>
-
-<a href="#contact">Contact</a>
-  
-<a href="#projects">Projects</a>  
-</div>
-
-</header>
-
-<section id="about">
-
-<h3>👤 About Me</h3>
-
-<p>
-Hello! I am <b>Rohan Singh</b>, a 10th class student from
-Madhubani, Bihar, India.
-
-I love learning new technology, creating websites,
-and improving my programming skills every day.
-</p>
-
-</section>
-
-<section id="skills">
-
-<h3>💻 Skills</h3>
-
-<div class="skills">
-
-<div class="skill">HTML</div>
-
-<div class="skill">CSS</div>
-
-<div class="skill">JavaScript (Learning)</div>
-
-<div class="skill">GitHub Pages</div>
-
-<div class="skill">Programming</div>
+<a href="#about" class="btn">Explore My Website</a>
 
 </div>
+</section>
+<section id="about" class="card">
+  <div class="container">
+    <h2>👨 About Me</h2>
 
+    <p>
+      Hello! I am <strong>Rohan Singh Madhubani</strong>, a 10th Class Student from Madhubani, Bihar, India.
+    </p>
+
+    <p>
+      I love Web Development, Programming, Technology and learning new skills every day.
+      My goal is to become a professional Full Stack Web Developer and create powerful websites.
+    </p>
+  </div>
 </section>
 
-<section>
+<section id="skills" class="card">
+  <div class="container">
+    <h2>💻 My Skills</h2>
 
-<h3>📚 Education</h3>
+    <div class="skills">
+      <span class="skill">HTML5</span>
+      <span class="skill">CSS3</span>
+      <span class="skill">JavaScript (Learning)</span>
+      <span class="skill">GitHub Pages</span>
+      <span class="skill">SEO Basics</span>
+      <span class="skill">Responsive Design</span>
+    </div>
+  </div>
+</section><section id="projects" class="card">
+  <div class="container">
+    <h2>🚀 My Projects</h2>
 
-<p>
+    <div class="card">
+      <h3>🌐 Personal Portfolio Website</h3>
+      <p>
+        This is my official portfolio website built using HTML & CSS.
+        It is hosted on GitHub Pages and continuously updated with new features.
+      </p>
 
-10th Class Student<br>
-
-Madhubani, Bihar, India
-
-</p>
-
+      <a href="https://rohansingh90999-beep.github.io/" target="_blank" class="btn">
+        🔗 Visit Website
+      </a>
+    </div>
+  </div>
 </section>
-<section id="projects">
-  <h3>📂 Projects</h3>
 
-  <p><b>Personal Portfolio Website</b></p>
-  <p>This is my official website built using HTML and CSS.</p>
+<section id="contact" class="card">
+  <div class="container">
+    <h2>📞 Contact Me</h2>
 
-  <p>
-    <a href="https://rohansingh90999-beep.github.io/" target="_blank">
-      🌐 Visit Website
-    </a>
-  </p>
-</section>
-<section id="contact">
+    <p>📍 Madhubani, Bihar, India</p>
 
-<h3>📞 Contact</h3>
+    <div class="buttons">
+      <a href="https://www.facebook.com/avishek2022" target="_blank" class="btn">Facebook</a>
 
-<p>
+      <a href="https://www.instagram.com/legacy_of_rajput079?igsh=MXF0azcyeDN3cXQyeQ==" target="_blank" class="btn">Instagram</a>
 
-📍 Madhubani, Bihar, India
-
-</p>
-
-<div class="buttons">
-
-<a href="https://github.com/">GitHub</a>
-
-<a href="https://www.instagram.com/">Instagram</a>
-
-<a href="mailto:your@email.com">Email</a>
-
-</div>
-
+      <a href="mailto:your@email.com" class="btn">Email</a>
+    </div>
+  </div>
 </section>
 
 <footer>
-
-© 2026 Rohan Singh madhubani | Official Website
-
+  <div class="container">
+    <p>© 2026 Rohan Singh Madhubani | Official Website</p>
+  </div>
 </footer>
 
 </body>
