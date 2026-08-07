@@ -834,7 +834,8 @@
             <img src="rohan.png" alt="Rohan Singh" class="avatar-img">
         </div>
         <div class="intro-title">SYSTEM ONLINE // ROHAN.SYS 🚀</div>
-        <button class="enter-btn" onclick="closeIntro()">ENTER MATRIX ⚡</button>
+        <button class="enter-btn" onclick="this.closest('#anime-intro').style.display='none';">ENTER MATRIX ⚡</button>
+        
     </div>
 </div>
 
@@ -849,14 +850,17 @@
     }
 
     /* Intro Screen Overlay */
-    #anime-intro {
-        position: fixed; inset: 0;
-        background: #030712; z-index: 99999;
-        display: flex; flex-direction: column;
-        align-items: center; justify-content: center;
-        transition: opacity 0.6s ease, visibility 0.6s ease;
-        pointer-events: auto;
-    }
+ #anime-intro {
+    position: fixed; inset: 0;
+    background: #030712; z-index: 99999;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+    pointer-events: auto;
+    animation: forceHide 0.5s forwards 2.5s;
+    
+ }
+        
 
     /* 🚀 Pop-Up Entry Animation */
     .intro-content-box {
@@ -911,7 +915,16 @@
         0% { opacity: 0; transform: scale(0.4) translateY(40px); }
         100% { opacity: 1; transform: scale(1) translateY(0); }
     }
-</style>
+@keyframes forceHide {
+    to {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        display: none;
+    }
+            }
+        
+    </style>
 
 <!-- External JS Libraries -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
